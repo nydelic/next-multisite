@@ -1,5 +1,6 @@
 import { NavigationMenuDemo } from "./components/Nav";
 import "./index.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Memory Box",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         {children}
         <NavigationMenuDemo />
+        <Analytics />
       </body>
     </html>
   );
