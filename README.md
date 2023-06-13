@@ -26,9 +26,11 @@ This means when you access the shape of the middleware, the server will internal
 
 ## Adding custom domains?
 
-Custom domains **from subdomains** should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.
+~~Custom domains **from subdomains** should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.~~
 
-So a CNAME for `the-pigeons.ch` pointing to `the-pigeons.hostname.com` should work.
+~~So a CNAME for `the-pigeons.ch` pointing to `the-pigeons.hostname.com` should work.~~
+
+> On vercel, this setup probably won't work (due to their CNAME setup or something, did not figure it out yet). You should use A records if you want to work with custom sub.domains (just like root domains). And then add it to domains.json.
 
 If you want to add a root domain (or you don't want to work with CNAME in general), it is a bit more complicated, since a CNAME cannot be used for root domains. The apex domain needs to be configured using an A record to point directly to the host server.
 
