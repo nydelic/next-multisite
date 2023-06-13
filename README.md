@@ -14,21 +14,16 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Multisite setup
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The routing is set up the following way:  
+`hostname.com/projects/{project-slug}/*`.
 
-## Learn More
+The job of the middleware is to convert a different shape to the above shape internally. The routing that the middleware is expecting is the following:  
+`{project-slug}.hostname.com/*`
 
-To learn more about Next.js, take a look at the following resources:
+This means when you access the shape of the middleware, the server will internally rewrite the URL to the shape that Next.js is expecting (no redirect).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adding custom domains?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Custom domains should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.
