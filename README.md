@@ -27,3 +27,5 @@ This means when you access the shape of the middleware, the server will internal
 ## Adding custom domains?
 
 Custom domains should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.
+
+So a CNAME for `the-pigeons.ch` pointing to `the-pigeons.hostname.com` should work.
