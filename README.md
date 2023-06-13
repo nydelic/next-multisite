@@ -26,6 +26,16 @@ This means when you access the shape of the middleware, the server will internal
 
 ## Adding custom domains?
 
-Custom domains should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.
+Custom domains **from subdomains** should not be an issue, as a CNAME can simply be used to point to the subdomain. Because a CNAME will still work with the original domain for the `host` header, this should just work.
 
 So a CNAME for `the-pigeons.ch` pointing to `the-pigeons.hostname.com` should work.
+
+If you want to add a root domain (or you don't want to work with CNAME in general), it is a bit more complicated, since a CNAME cannot be used for root domains. The apex domain needs to be configured using an A record to point directly to the host server.
+
+The middleware then needs to be informed about which root domains belong to which project. This is why the `domains.json` file exists. It is a simple JSON file that maps project slugs to root domains. It has the following shape:
+
+```json
+{
+  "project-slug": ["domain1.com", "domain2.com"]
+}
+```
