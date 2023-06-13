@@ -1,3 +1,4 @@
+import { NavigationMenuDemo } from "./components/Nav";
 import "./index.css";
 
 export const metadata = {
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        {children}
+        <NavigationMenuDemo />
+      </body>
     </html>
   );
 }
