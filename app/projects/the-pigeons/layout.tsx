@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react";
+import ProjectAnalytics from "@/lib/ProjectAnalytics";
 
 export const metadata = {
   title: "The Pigeons",
@@ -15,7 +15,7 @@ export default function RootLayout({
     <html>
       <body>
         {children}
-        <Analytics />
+        <ProjectAnalytics project="the-pigeons" />
       </body>
     </html>
   );
