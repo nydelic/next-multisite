@@ -1,11 +1,10 @@
+import ProjectAnalytics from "@/lib/ProjectAnalytics";
 import { NavigationMenuDemo } from "./components/Nav";
 import "./index.css";
-import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Memory Box",
-  description:
-    "the pigeons in Pixel and Bytes. Durchstöbere die Webseite unserer vierköpfigen Band «the pigeons»",
+  description: "Make memories together",
 };
 
 export default function RootLayout({
@@ -18,7 +17,7 @@ export default function RootLayout({
       <body>
         {children}
         <NavigationMenuDemo />
-        <Analytics />
+        <ProjectAnalytics project="memory-box" />
       </body>
     </html>
   );

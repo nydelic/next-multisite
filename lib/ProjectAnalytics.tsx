@@ -10,10 +10,8 @@ function ProjectAnalytics({ project }: ProjectAnalyticsProps) {
   return (
     <Analytics
       beforeSend={(event) => {
-        console.log(event.url);
-
         const eventUrl = new URL(event.url);
-        const prefixedPath = `/${project}/${eventUrl.pathname}`;
+        const prefixedPath = `/projects/${project}/${eventUrl.pathname}`;
 
         return {
           ...event,
